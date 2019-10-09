@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterFnameLnameSizesUnserInfos extends Migration
+class AlterFnameLnameSizesUserinfo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AlterFnameLnameSizesUnserInfos extends Migration
     public function up()
     {
         Schema::table('user_infos', function (Blueprint $table) {
-            $table->string('firstname',100)->change();
-            $table->string('lastname',100)->change();
+            $table->string('firstname', 100)->change();
+            $table->string('lastname', 100)->change();
         });
     }
 
@@ -26,7 +26,8 @@ class AlterFnameLnameSizesUnserInfos extends Migration
     public function down()
     {
         Schema::table('user_infos', function (Blueprint $table) {
-            
+            $table->string('firstname')->change();
+            $table->string('lastname')->change();
         });
     }
 }

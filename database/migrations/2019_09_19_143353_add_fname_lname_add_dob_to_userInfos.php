@@ -17,7 +17,7 @@ class AddFnameLnameAddDobToUserInfos extends Migration
             $table->string('lastname');
             $table->string('address');
             $table->string('dob');
-        });        
+        });
     }
 
     /**
@@ -27,8 +27,6 @@ class AddFnameLnameAddDobToUserInfos extends Migration
      */
     public function down()
     {
-        Schema::table('userInfos', function (Blueprint $table) {
-           
-        });
+        //
     }
 }
