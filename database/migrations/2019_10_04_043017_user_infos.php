@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAddressContactAgeUserInfos extends Migration
+class UserInfos extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,11 @@ class AddAddressContactAgeUserInfos extends Migration
      */
     public function up()
     {
-        Schema::table('user_infos', function (Blueprint $table) {
+        Schema::create('user_infos', function (Blueprint $table) {
+            $table->increments('id');            
+            $table->string('name',100);
             $table->string('address');
-            $table->string('contact');
-            $table->integer('age');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +27,6 @@ class AddAddressContactAgeUserInfos extends Migration
      */
     public function down()
     {
-        Schema::table('user_infos', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

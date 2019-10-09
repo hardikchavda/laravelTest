@@ -1,2 +1,6 @@
 {{-- This data is coming from welcome array.. --}}
-{{$var}} 
+
+{{$var->name}} 
+{{$var->address}} 
+{{$var->created_at}} 
+{{$var->updated_at}} 
