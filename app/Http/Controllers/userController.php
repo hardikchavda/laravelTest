@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use DateTime;
-//use App\userInfo;
+use App\userInfo;
 
 use Illuminate\Support\Facades\DB;
 
@@ -23,12 +23,8 @@ class userController extends Controller
 
         // Query Builder
         //CRUD 
-        //Create Update Delete Admin
-        //Read Filters = 
-        $data = DB::table('user_infos')
-                    ->orderby('created_at','desc')
-                    ->where('name','vrunda')
-                    ->get();
+        //
+        // Create
         // $data = DB::table('user_infos')
         //     ->insert([
         //         [
@@ -44,8 +40,52 @@ class userController extends Controller
         //             'updated_at' => new DateTime(),
         //         ],
         //     ]);
+        //Read 
+        // $data = DB::table('user_infos')
+        //             ->orderby('created_at','desc')
+        //             //->where('name','vrunda')
+        //             ->get();
+        //Update
+        // $data = DB::table('user_infos')            
+        //     ->where('id', '4')
+        //     ->update([
+        //         'name' => 'purvi',
+        //         'address' => 'rajkot',
+        //         'created_at' => new DateTime(),
+        //         'updated_at' => new DateTime(),
+        //     ]);        
+        // Delete
+        // $data = DB::table('user_infos')            
+        //     ->where('id', '7')
+        //     ->delete();
 
-        dd($data);
+        //->get();
+
+        //Eloquent ORM
+        //Read
+        $data = userInfo::all();
+        
+        //Create
+        // $data = new userInfo;
+        // $data->name = 'kishorsinh';
+        // $data->address = 'rajkot';
+        // $data->save();
+
+        //Update
+        // $data = userInfo::find(25);
+        // $data->name = 'sds' ;
+        // $data->address = 'sdsdsds' ;
+        // $data->save();
+
+        //delete
+        // $data = userInfo::where('name','');
+        // $data->delete();
+
+        //destroy
+        //userInfo::destroy(1);
+
+        //dd($data);
+
         $name = [
             'Dhaval', 'Akshay', 'Mitali', 'Moin', 'Jeegar', 'Vrunda', 'Keyur', 'Ashvin'
         ];
