@@ -29,8 +29,33 @@
     @empty
         @include('empty')
     @endforelse
- --}}
+ 
    @each('arrdata', $name, 'var', 'empty')
+   --}}
+   <table>
+       <tr>
+           <td>name</td>
+           <td>address</td>
+           <td>created</td>
+           <td>updated</td>           
+           <td>Modiy</td>           
+       </tr>
+    @forelse ($name as $item)
+    <tr>
+        <td>{{$item->name}}</td>
+        <td>  {{$item->address}}</td>
+        <td> {{$item->created_at}}</td>
+        <td> {{$item->updated_at}}</td>
+         <td> <a href="modify/{{$item->id}}">Edit/Delete</a></td>         
+    </tr>
+        
+      
+       
+       
+    @empty
+        Nothing Found
+    @endforelse
+</table>
 
 @endsection
 @section('cssforwelcome')
