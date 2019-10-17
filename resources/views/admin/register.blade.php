@@ -49,16 +49,17 @@
 
 										<!-- Article list -->
 											<section class="box article-list">
-												<h2 class="icon fa-file-alt">Admin Login</h2>
+												<h2 class="icon fa-file-alt">Create New Admin</h2>
 
 												<!-- Excerpt -->
 													<article class="box excerpt">
-													<form action="{{route('logincheck')}}" method="POST">
+													<form action="{{route('registernew')}}" method="POST">
 														
 														{!! csrf_field() !!}
 														<input type="text" name="name" id="name" placeholder="Name">
-														<input type="password" name="password" id="password" placeholder="Password">														
-														<input type="submit" name="submit" id="submit" value="login">		
+														<input type="password" name="password" id="password" placeholder="Password">
+														<input type="email" name="email" id="email" placeholder="E-Mail">
+														<input type="submit" name="submit" id="submit" value="Create User">		
 														The owner of this device turned off the dinosaur game.												
 													</form>
 												</article>
@@ -66,20 +67,7 @@
 
 											</section>
 									</div>
-									<div class="col-4 col-12-medium">
-
-										<!-- Spotlight -->
-											<section class="box spotlight">
-												<h2 class="icon fa-file-alt">Create Users</h2>
-												<article>
-												
-													<footer>
-														<a href="{{route('register')}}" class="button alt icon solid fa-file-alt">Create New User</a>
-													</footer>
-												</article>
-											</section>
-
-									</div>
+									
 								</div>
 							</div>
 						</div>
