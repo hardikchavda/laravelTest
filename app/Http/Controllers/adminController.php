@@ -11,14 +11,23 @@ use Redirect;
 
 class adminController extends Controller
 {
-   public function  dashboard()
+    public function  dashboard()
     {
         return view('admin/dashboard');
     }
-    
+
     public function  login()
     {
-        return view('admin/login');
+        if (Auth::guest())
+            return view('admin/login');
+        else
+            return Redirect::to('admin/dashboard');
+    }
+
+    public function  logout()
+    {
+        Auth::logout();
+        return Redirect::to('admin/login');
     }
 
 
@@ -27,8 +36,8 @@ class adminController extends Controller
 
         $nm = $req->name;
         $pwd = $req->password;
-        //dd(Auth::attempt(['name' => $nm, 'password' => $pwd]));
-        if(Auth::attempt(['name' => $nm, 'password' => $pwd]))
+        //dd(Auth::attempt(['name' => $nm, \'password' => $pwd]));
+        if (Auth::attempt(['name' => $nm, 'password' => $pwd]))
             return Redirect::to('admin/dashboard');
         else
             return Redirect::to('admin/login');
@@ -51,10 +60,9 @@ class adminController extends Controller
         $data->name = $req->name;
         $data->password = bcrypt($req->password);
         $data->email = $req->email;
-        $data->remember_token = $req->_token;        
+        $data->remember_token = $req->_token;
         $data->save();
         //$data::create($req->all());
         return  Redirect::to('admin/login');
     }
-   
 }
