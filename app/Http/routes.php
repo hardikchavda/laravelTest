@@ -20,3 +20,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'prevent-back-history'], func
         Route::get('/logout', 'adminController@logout')->name('adminlogout');
     });
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+Route::get('/admin/adduser', 'HomeController@adduser');
+Route::post('/admin/addnewuser', 'HomeController@addnewuser');
