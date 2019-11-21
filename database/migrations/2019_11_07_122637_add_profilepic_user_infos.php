@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UserInfos extends Migration
+class AddProfilepicUserInfos extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,8 @@ class UserInfos extends Migration
      */
     public function up()
     {
-        Schema::create('user_infos', function (Blueprint $table) {
-            $table->increments('id');            
-            $table->string('name',100);
-            $table->string('address');
-            $table->timestamps();
+        Schema::table('user_infos', function (Blueprint $table) {
+            $table->string('profilepic');
         });
     }
 
@@ -27,6 +24,8 @@ class UserInfos extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('user_infos', function (Blueprint $table) {
+            //
+        });
     }
 }

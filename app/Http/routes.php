@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\adminController;
 
 Route::get('/', 'userController@welcome');
 Route::get('/test', 'userController@test');
@@ -20,3 +21,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'prevent-back-history'], func
         Route::get('/logout', 'adminController@logout')->name('adminlogout');
     });
 });
+
+
+Route::auth();
+Route::get('/home', 'HomeController@index');
+Route::get('/admin/allusers', 'HomeController@allusers');
+Route::get('/admin/addusers', 'HomeController@addusers');
+Route::get('/admin/addusersinfo', 'HomeController@addusersinfo');
+Route::post('/admin/addnewuser', 'HomeController@addnewuser');
+Route::post('/admin/addnewuserinfo', 'HomeController@addnewuserinfo');
